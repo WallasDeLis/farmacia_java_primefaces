@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+        <title>Categoria</title>
+    </h:head>
+    <h:body>
+        <div class="row" id="container">
+            <div class="span6">
+                <h:form id="localizarCategoria">
+                    <h1>Consultar Categoria</h1>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Buscar categoria" />
+                        <h:inputText id="nomeDaCategoria" value="#{categoriaController.descricao}" />
+                    </h:panelGrid>
+                    <p:commandButton action="#{categoriaController.consultar}"
+                        value="consultar" update=":formConsultarCategoria:listaDeCategoria">
+                    </p:commandButton>
+                </h:form>
+
+                <h:form id="formConsultarCategoria">
+                    <p:dataTable id="listaDeCategoria" value="#{categoriaController.consulta}" var="categoria" styleClass="table table-striped">
+                        <f:facet name="header">Resultado da Consulta</f:facet>
+                        <p:column>
+                            <f:facet name="header">Id</f:facet>
+                                 #{categoria.id}
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">Descrição</f:facet>
+                                 #{categoria.descricao}
+                        </p:column>
+                        
+                    </p:dataTable>
+                </h:form>
+
+            </div>
+            
+            <div class="span6">
+                <div class="span6" id="adicionar">
+                <h1>Adicionar Categoria</h1>
+                <h:form id="addCategoria">
+                    
+                    <h:panelGrid columns="2">
+                         <h:outputLabel value="Id" />
+                         <h:inputText id="idDesc" value="#{categoriaController.categoria.id}" disabled="true" />
+                         <h:outputLabel value="Categoria" />
+                         <h:inputText id="descCategoria" value="#{categoriaController.categoria.descricao}" required="true" />
+                    </h:panelGrid>
+                    
+                    <p:commandButton actionListener="#{categoriaController.adicionar}" value="Adicionar" update=":formAddCategoria:listaDeCategoria">
+                    </p:commandButton>
+                </h:form>
+ 
+                
+            </div>
+
+                <h:form id="formAddCategoria">
+                    <p:dataTable id="listaDeCategoria" value="#{categoriaController.categorias}" var="categoria" styleClass="table table-striped">
+                        <f:facet name="header">Resultado da Consulta</f:facet>
+                        <p:column>
+                            <f:facet name="header">Id</f:facet>
+                                 #{categoria.id}
+                             </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">Descrição</f:facet>
+                                 #{categoria.descricao}
+                             </p:column>
+
+                    </p:dataTable>
+                </h:form>
+
+            </div>
+            
+        </div>
+        
+ </h:body>
+</html>
