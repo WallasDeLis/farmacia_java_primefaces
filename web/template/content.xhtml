@@ -3,18 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-          
+      xmlns:ui="http://java.sun.com/jsf/facelets"          
       xmlns:p="http://primefaces.org/ui">
     <body>
-        <ui:composition>
-  
-        <h1>Seja Bem Vindo</h1>
-        <h:graphicImage value="imagens/banner_farmacia_online.png"/>
-        
-        <p:galleria value="#{imagesView.images}" var="imagens" panelWidth="500" panelHeight="313" showCaption="true">
-            <p:graphicImage name="imagens/#{imagens}" alt="Image Description for #{imagens}" title="#{imagens}"/>
-        </p:galleria>
+        <ui:composition>           
+            <h:graphicImage value="imagens/banner_farmacia_online.png"/>
+
+            <p:galleria value="#{imagensView.images}" var="imagens" panelWidth="300" panelHeight="200" showCaption="true">
+                <p:graphicImage name="imagens/destaque/#{imagens}" alt="Descrição da imagem para #{imagens}" title="#{imagens}"/>
+            </p:galleria>            
         </ui:composition>
     </body>
 </html>

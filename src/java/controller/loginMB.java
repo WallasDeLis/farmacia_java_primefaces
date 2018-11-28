@@ -21,7 +21,7 @@ public class loginMB {
   public String doEfetuarLogin() {
     if("admin".equals(usuario.getLogin())
             && "123".equals(usuario.getSenha())) {
-      return "adicionarCategorias";
+      return "manutencao";
     } else {
       /* Cria uma mensagem. */
       FacesMessage msg = new FacesMessage("Usuário ou senha inválido!");

@@ -15,7 +15,7 @@ import javax.faces.bean.ManagedBean;
  * @author De Lis
  */
 @ManagedBean
-public class ImagesView {
+public class ImagensView {
      
     private List<String> imagens;
      
@@ -23,7 +23,7 @@ public class ImagesView {
     public void init() {
         imagens = new ArrayList<String>();
         for (int i = 1; i <= 3; i++) {
-            imagens.add("Farmacia-online" + i + ".jpg");
+            imagens.add("multgrip" + i + ".jpg");
         }
     }
  
