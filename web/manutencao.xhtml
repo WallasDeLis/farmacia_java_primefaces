@@ -4,49 +4,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <h:head>
         <title>Manutenção</title>
     </h:head>
   
     <h:body>
-  
-    <div id="page">
-  
-        <div id="headerManutencao">
-            <h:form>  
-                <p:growl id="messages123"/>     
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="60" resizable="true" closable="true" collapsible="true">
+                    <h:form>                  
+                        <p:menubar>                            
+                            <p:menuitem value="Sair do sistema" url="homePage.xhtml" />                
+                            
+                            <f:facet name="options">
+                                <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Pesquisar"/>                    
+                            </f:facet>
+                        </p:menubar>                    
+                    </h:form>                    
+                </p:layoutUnit>
 
-                <p:menubar>
-                    <p:submenu label="Cadastrar">
-                        <p:menuitem value="Produto" url="adicionarProdutos.xhtml" />
-                        <p:separator />
-                        <p:menuitem value="Usuario" url="adicionarUsuario.xhtml" />
-                    </p:submenu>
-                    
-                    <p:submenu label="Listar Cadastro">
-                        <p:menuitem value="Produto" url="listarCategorias.xhtml" />
-                        <p:separator />
-                        <p:menuitem value="Usuario" url="" />
-                    </p:submenu>               
-                    
-                    <p:menuitem value="Sair do sistema" url="index.xhtml" />                
-                </p:menubar>
-            </h:form>
-        </div>         
-        
-        <table width="100%">
-        <tr>
-          <td colspan="2" align="center">
-            <ui:insert name="cabecalho">
-              <h1>Area de Manutencao do Sistema</h1>
-            </ui:insert>
-          </td>
-        </tr>
-        
-      </table>
-        </div>
+                
+                <p:layoutUnit position="west" size="220" header="Ocultar" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Cadastros">
+                            <p:menuitem value="Produto" url="adicionarProdutos.xhtml" />
+                            <p:menuitem value="Fornecedores" url="" />
+                            <p:menuitem value="Usuario" url="adicionarUsuario.xhtml" />
+                        </p:submenu>
+                        
+                        <p:submenu label="Relatórios">
+                            <p:menuitem value="Produto" url="listarCategorias.xhtml" />
+                            <p:menuitem value="Fornecedores" url="" />
+                            <p:menuitem value="Usuario" url="" />
+                        </p:submenu>               
+                        
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    Carregar os formalários aqui!
+                </p:layoutUnit>
+
+            </p:layout>
   
     </h:body>
 </html>

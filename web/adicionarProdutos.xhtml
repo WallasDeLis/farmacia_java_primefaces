@@ -1,23 +1,61 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html" 
-       >
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
         <title>Adicionar Produtos</title>
 </h:head>
-<h:body> 
     
-    <h1>Formulário Cadastro de Produtos</h1>                
+<h:body> 
+    <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="60" resizable="true" closable="true" collapsible="true">
+                    <h:form>                  
+                        <p:menubar>
+                            <p:menuitem value="Voltar" url="manutencao.xhtml" /> 
+                            <p:menuitem value="Sair do sistema" url="homePage.xhtml" />  
+                            
+                            <f:facet name="options">
+                                <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Pesquisar"/>                    
+                            </f:facet>
+                        </p:menubar>                    
+                    </h:form>                    
+                </p:layoutUnit>
+            
+            <div id="menuManutencao">
+                <p:layoutUnit position="west" size="220" header="Ocultar" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Cadastros">
+                            <p:menuitem value="Produto" url="adicionarProdutos.xhtml" />
+                            <p:menuitem value="Fornecedores" url="" />
+                            <p:menuitem value="Usuario" url="adicionarUsuario.xhtml" />
+                        </p:submenu>
+
+                        <p:submenu label="Relatórios">
+                            <p:menuitem value="Produto" url="listarCategorias.xhtml" />
+                            <p:menuitem value="Fornecedores" url="" />
+                            <p:menuitem value="Usuario" url="" />
+                        </p:submenu>               
+
+                    </p:menu>
+                </p:layoutUnit>
+            </div>            
            
-    <h:form id="addCategoria">
-        <h:panelGrid columns="2">
-             <h:outputLabel value="Id" for="id" />
-             <h:inputText id="id" value="#{categoriaController.categoria.id}" disabled="true" />
-             <h:outputLabel value="Categoria" for="descricao" />
-             <h:inputText id="descricao" value="#{categoriaController.categoria.descricao}" required="true" />
-             <h:messages />
-        </h:panelGrid>
-        <h:commandButton value="Adicionar" action="#{categoriaController.adicionarEListar}"/>
-    </h:form>
+            <p:layoutUnit position="center">
+            <h2>Formulário: Cadastro de Produtos</h2>
+                <h:form id="addCategoria">
+                    <h:panelGrid columns="2">
+                         <h:outputLabel value="Id" for="id" />
+                         <h:inputText id="id" value="#{categoriaController.categoria.id}" disabled="true" />
+                         <h:outputLabel value="Categoria" for="descricao" />
+                         <h:inputText id="descricao" value="#{categoriaController.categoria.descricao}" required="true" />
+                         <h:messages />
+                    </h:panelGrid>
+                    <h:commandButton value="Adicionar" action="#{categoriaController.adicionarEListar}"/>
+                </h:form>
+            </p:layoutUnit>
+            
+        </p:layout>
+    
  </h:body>
 </html>

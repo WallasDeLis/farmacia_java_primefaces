@@ -23,7 +23,7 @@ public class ImagensView {
     public void init() {
         imagens = new ArrayList<String>();
         for (int i = 1; i <= 3; i++) {
-            imagens.add("multgrip" + i + ".jpg");
+            imagens.add("imagem" + i + ".png");
         }
     }
  
