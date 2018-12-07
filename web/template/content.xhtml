@@ -7,51 +7,34 @@
       xmlns:p="http://primefaces.org/ui">
     <body>
         <ui:composition> 
-            <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                <h:graphicImage value="imagens/banner_farmacia_online.png"/>
+            <p:layoutUnit position="south" size="100%" closable="true" collapsible="true">
+                <h:graphicImage value="imagens/banner_farmacia_online.png" width="100%"/>
             </p:layoutUnit>
             
-            <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
             
-            <h:form>
-		<h:panelGrid border="1" columns="4" >
-                    
-                    <p:galleria value="#{imagensView.images}" var="imagens" panelWidth="300" panelHeight="200" showCaption="true">
-                        <p:graphicImage name="imagens/destaque/#{imagem}" alt="Descrição da imagem para #{imagem}" title="#{imagem}"/>
-                    </p:galleria>
-                    
-                    <div style="width: 300px; height: 250px; border: solid 1px lightslategray">
-                        <h:graphicImage value="imagens/imagem1.png" >
-                            <p>texto aqui</p>
-                        </h:graphicImage>                
-                    </div>
-                    
-                    <div style="width: 300px; height: 250px; border: solid 1px lightslategray">
-                        <h:graphicImage value="imagens/imagem2.png">
-                            <p>texto aqui</p>
-                        </h:graphicImage>                
-                    </div>
-                    
-                    <div style="width: 300px; height: 250px; border: solid 1px lightslategray">
-                        <h:graphicImage value="imagens/imagem3.png" >
-                            <p>texto aqui</p>
-                        </h:graphicImage>                
-                    </div>	
-                    
-		</h:panelGrid>
-            </h:form>
-                
+            <p:layoutUnit position="south" size="100%" closable="true" collapsible="true">            
+                <h:form>                
+                    <h:panelGrid border="1" columns="4" cellpadding="5">
+                        
+                            <p:galleria value="#{imagensView.images}" var="imagens" panelWidth="300" panelHeight="200" showCaption="true">
+                                <p:graphicImage name="imagens/destaque/#{imagem}" alt="Descrição da imagem para #{imagem}" title="#{imagem}"/>
+                            </p:galleria> 
+
+                            <h:graphicImage value="imagens/imagem1.png" >
+                                <p>texto aqui</p>
+                            </h:graphicImage> 
+                            <h:graphicImage value="imagens/imagem2.png" >
+                                <p>texto aqui</p>
+                            </h:graphicImage> 
+                            <h:graphicImage value="imagens/imagem3.png" >
+                                <p>texto aqui</p>
+                            </h:graphicImage>                                                                
+
+                    </h:panelGrid>
+                </h:form>             
+             </p:layoutUnit>
             
-            
-           
-                
-           
-            
-            
-             </p:layoutUnit>                 
-            
-        </ui:composition>
-        
+        </ui:composition>        
     </body>
 </html>
 
