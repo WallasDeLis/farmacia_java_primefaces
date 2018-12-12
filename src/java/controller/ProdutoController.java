@@ -138,10 +138,11 @@ public class ProdutoController implements Serializable {
         System.out.println("categoria "+produto);
         if(produtos != null){
            produtos.add(produto);
+           
             dao.inserir(produto);
             produto = new Produto();
         }
-        return "consultaCategorias";
+        return "consultaProdutos";
     }
     
     public void adicionar() throws SQLException {

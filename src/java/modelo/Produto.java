@@ -17,6 +17,15 @@ public class Produto {
     private double preco;
     private long quantidade;
     private String tipo;
+    private String descricao;
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
     
      public Produto(long id, String nome,double preco,long quantidade,String tipo) {
         this.id = id;

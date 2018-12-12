@@ -44,12 +44,13 @@ public void inserir(Produto produto)
 	Connection con = FabricaPostgres.conexao();
 	// preparar declarao 'insert'
 	PreparedStatement stmt = con.prepareStatement(""
-			+ "INSERT INTO produto(nome,preco,quantidade,tipo) "
-			+ " VALUES(?) ");
+			+ "INSERT INTO produto(nome,preco,quantidade,tipo,descricao) "
+			+ " VALUES(?,?,?,?,?) ");
 	stmt.setString(1, produto.getNome());
-        stmt.setString(2, String.valueOf(produto.getPreco()));
-        stmt.setString(3, String.valueOf(produto.getQuantidade()));
+        stmt.setDouble(2, produto.getPreco());
+        stmt.setLong(3, produto.getQuantidade());
         stmt.setString(4, produto.getTipo());
+        stmt.setString(5, produto.getDescricao());
         
 	stmt.executeUpdate();
 }
