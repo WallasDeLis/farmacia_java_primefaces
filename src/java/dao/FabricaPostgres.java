@@ -6,7 +6,7 @@ public class FabricaPostgres {
 		 throws SQLException {
   if(con == null){		
   String url = "jdbc:postgresql://localhost:5432/farmacia_db";
-  String usuario = "postgres", senha = "ROOT";
+  String usuario = "postgres", senha = "root";
   con = DriverManager.getConnection(url, usuario, senha);
   }
   return con;
