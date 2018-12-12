@@ -5,8 +5,8 @@ public class FabricaPostgres {
  public static Connection conexao() 
 		 throws SQLException {
   if(con == null){		
-  String url = "jdbc:postgresql://localhost:5432/bibliotecaonline";
-  String usuario = "postgres", senha = "postgres";
+  String url = "jdbc:postgresql://localhost:5432/farmacia_db";
+  String usuario = "postgres", senha = "ROOT";
   con = DriverManager.getConnection(url, usuario, senha);
   }
   return con;
