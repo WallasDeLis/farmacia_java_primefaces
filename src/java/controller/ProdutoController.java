@@ -33,6 +33,16 @@ public class ProdutoController implements Serializable {
     private int quantidade;
     private String tipo;
     private String descricao;
+    
+    private String pesquisa;
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
 
     public String getDescricao() {
         return descricao;
@@ -82,6 +92,7 @@ public class ProdutoController implements Serializable {
         this.tipo = tipo;
     }
     private ProdutoDAO dao = new ProdutoDAO();
+    
     public List<Produto> getProdutos() throws SQLException {
         if(produtos == null){
             produtos = dao.consultar();
@@ -89,6 +100,13 @@ public class ProdutoController implements Serializable {
         return produtos;
     }
 
+    public List<Produto> getProdutosPeloNome() throws SQLException {
+        if(produtos == null){
+            produtos = dao.consultarProduto(this.pesquisa);
+        }
+        return produtos;
+    }
+    
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
@@ -108,14 +126,14 @@ public class ProdutoController implements Serializable {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
-
+/*
     public void setConsulta(List<Produto> consulta) {
         this.consulta = consulta;
     }
+*/
     public List<Produto> getConsulta() throws SQLException {
-        System.out.println("descricao:"+descricao);
         if(this.nome != null){
-            produtos = getProdutos();
+            produtos = getProdutosPeloNome();
             consulta = new ArrayList<>();
             for(Produto elem: produtos){
                 if(elem.getNome().contains(nome)){
@@ -134,8 +152,6 @@ public class ProdutoController implements Serializable {
         if(produtos == null){
             produtos = getProdutos();
         }
-        System.out.println("categorias.size "+produtos.size());
-        System.out.println("categoria "+produto);
         if(produtos != null){
            produtos.add(produto);
            

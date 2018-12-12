@@ -4,7 +4,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:p="http://primefaces.org/ui">
 <h:head>
-        <title>Produto</title>
+        <title>Relatório de produto</title>
     </h:head>
     <h:body>
         <div class="row" id="container">
@@ -12,32 +12,54 @@
                 <h:form id="localizarProduto">
                     <h1>Consultar Produto</h1>
                     <h:panelGrid columns="2">
-                        <h:outputLabel value="Buscar categoria" />
-                        <h:inputText id="nomeDoProduto" value="#{produtoController.nome}" />
+                        <h:outputLabel value="Buscar produto" />
+                        <h:inputText id="nomeDoProduto" value="#{produtoController.pesquisa}" />
+                        
                     </h:panelGrid>
-                    <p:commandButton action="#{produtoController.consultar}"
-                        value="consultar" update=":formConsultarProduto:listaDeProduto">
+                    <p:commandButton action="#{produtoController.produtosPeloNome}"
+                        value="Consultar" update=":formConsultarProduto:listaDeProduto">
+                    </p:commandButton>
+                    <p:commandButton action="#{produtoController.produtos}"
+                        value="Listar todos" update=":formConsultarProduto:listaDeProduto">
                     </p:commandButton>
                 </h:form>
-
+                <br></br>
                 <h:form id="formConsultarProduto">
-                    <p:dataTable id="listaDeProduto" value="#{produtoController.consulta}" var="produto" styleClass="table table-striped">
+                    <p:dataTable id="listaDeProduto" value="#{produtoController.produtos}" var="produto" styleClass="table table-striped">
                         <f:facet name="header">Resultado da Consulta</f:facet>
                         <p:column>
-                            <f:facet name="header">Id</f:facet>
+                            <f:facet name="header">id</f:facet>
                                  #{produto.ID}
                         </p:column>
-                        
                         <p:column>
                             <f:facet name="header">Nome</f:facet>
                                  #{produto.nome}
                         </p:column>
                         
+                        <p:column>
+                            <f:facet name="header">Preço</f:facet>
+                                 #{produto.preco}
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">Quntidade</f:facet>
+                                 #{produto.quantidade}
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">Tipo</f:facet>
+                                 #{produto.tipo}
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">Descrição</f:facet>
+                                 #{produtoController.produto.descricao}
+                        </p:column>
                     </p:dataTable>
                 </h:form>
 
             </div>
-            
+            <!--
             <div class="span6">
                 <div class="span6" id="adicionar">
                 <h1>Adicionar Produto</h1>
@@ -45,12 +67,12 @@
                     
                     <h:panelGrid columns="2">
                          <h:outputLabel value="Id" />
-                         <h:inputText id="idDesc" value="#{produtoController.produto.ID}" disabled="true" />
+                         <h:inputText id="idDesc" value="#produtoController.produto.ID}" disabled="true" />
                          <h:outputLabel value="Categoria" />
-                         <h:inputText id="descProduto" value="#{produtoController.produto.nome}" required="true" />
+                         <h:inputText id="descProduto" value="#produtoController.produto.nome}" required="true" />
                     </h:panelGrid>
                     
-                    <p:commandButton actionListener="#{produtoController.adicionar}" value="Adicionar" update=":formAddProduto:listaDeProduto">
+                    <p:commandButton actionListener="#produtoController.adicionar}" value="Adicionar" update=":formAddProduto:listaDeProduto">
                     </p:commandButton>
                 </h:form>
  
@@ -58,23 +80,23 @@
             </div>
 
                 <h:form id="formAddProduto">
-                    <p:dataTable id="listaDeProduto" value="#{produtoController.produtos}" var="produto" styleClass="table table-striped">
+                    <p:dataTable id="listaDeProduto" value="#produtoController.produtos}" var="produto" styleClass="table table-striped">
                         <f:facet name="header">Resultado da Consulta</f:facet>
                         <p:column>
                             <f:facet name="header">Id</f:facet>
-                                 #{produto.ID}
+                                 #produto.ID}
                              </p:column>
                         
                         <p:column>
                             <f:facet name="header">Nome</f:facet>
-                                 #{produto.nome}
+                                 #produto.nome}
                              </p:column>
 
                     </p:dataTable>
                 </h:form>
 
             </div>
-            
+           --> 
         </div>
         
  </h:body>

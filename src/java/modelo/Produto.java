@@ -27,12 +27,13 @@ public class Produto {
         this.descricao = descricao;
     }
     
-     public Produto(long id, String nome,double preco,long quantidade,String tipo) {
+     public Produto(long id, String nome,double preco,long quantidade,String tipo,String descricao) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
         this.tipo = tipo;
+        this.descricao = descricao;
     }
      
      public Produto(){

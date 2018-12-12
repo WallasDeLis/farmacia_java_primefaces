@@ -19,6 +19,7 @@ import modelo.Produto;
  * @author Aluno
  */
 public class ProdutoDAO {
+    
     public List<Produto> consultar() 
 	throws SQLException{// R - Read// Consultar
 	List<Produto> lista = new ArrayList<Produto>();
@@ -32,11 +33,32 @@ public class ProdutoDAO {
            double preco = rs.getDouble("preco");
            int quantidade = rs.getInt("quantidade");
            String tipo = rs.getString("tipo");
-	   Produto produto = new Produto(id,nome,preco,quantidade,tipo);
+           String desc = rs.getString("descricao");
+	   Produto produto = new Produto(id,nome,preco,quantidade,tipo,desc);
 	   lista.add(produto); 
 	}
 	return lista;
 	}
+    
+    public List<Produto> consultarProduto(String str) throws SQLException{
+	List<Produto> lista = new ArrayList<Produto>();
+		Connection con = FabricaPostgres.conexao();
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery(
+		"SELECT * FROM produto WHERE nome ilike '" + str + "'");
+	while (rs.next()) {
+	   long id = rs.getInt("id_Produto");
+	   String nome = rs.getString("nome");
+           double preco = rs.getDouble("preco");
+           int quantidade = rs.getInt("quantidade");
+           String tipo = rs.getString("tipo");
+           String desc = rs.getString("descricao");
+	   Produto produto = new Produto(id,nome,preco,quantidade,tipo,desc);
+	   lista.add(produto); 
+	}
+	return lista;
+	}
+    
 	// C - Create// Insert
 public void inserir(Produto produto) 
 			throws SQLException {
