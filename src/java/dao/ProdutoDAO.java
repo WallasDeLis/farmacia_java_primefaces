@@ -82,15 +82,18 @@ public void atualizar(Produto produto) throws SQLException{
 	// preparar declarao 'update'
 	PreparedStatement stmt = con.prepareStatement(""
 			+ "UPDATE produto"
-			+ " SET nome = ? "
-                        + " SET preco = ?"
-                        + " SET quantidade = ?"
-                        + " SET tipo = ?"
-			+ " WHERE id_login = ? ");
+			+ " SET nome = ?"
+                        + " , preco = ?"
+                        + " , quantidade = ?"
+                        + " , tipo = ?"
+                        + " , descricao = ?"
+			+ " WHERE id_produto = ? ");
 	stmt.setString(1, produto.getNome());
-        stmt.setString(2, String.valueOf(produto.getPreco()));
-        stmt.setString(3, String.valueOf(produto.getQuantidade()));
+        stmt.setDouble(2, produto.getPreco());
+        stmt.setLong(3, produto.getQuantidade());
         stmt.setString(4, produto.getTipo());
+        stmt.setString(5, produto.getDescricao());
+        stmt.setLong(6, produto.getID());
 	// executar declarao 'update'
 	stmt.executeUpdate();
 }

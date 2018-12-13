@@ -165,11 +165,20 @@ public class ProdutoController implements Serializable {
         if(produtos == null){
             produtos = getProdutos();
         }
-        System.out.println("categorias.size "+produtos.size());
-        System.out.println("categoria "+produto);
         if(produtos != null){
             produtos.add(produto);
             dao.inserir(produto);
+            produto = new Produto();
+        }
+    }
+    
+    public void atualizar() throws SQLException {
+        if(produtos == null){
+            produtos = getProdutos();
+        }
+        if(produtos != null){
+            //produtos.add(produto);
+            dao.atualizar(produto);
             produto = new Produto();
         }
     }
